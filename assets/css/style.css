@@ -1,0 +1,1581 @@
+/* =========================================
+   VARIÁVEIS CONFIGURÁVEIS PELO PAINEL
+
+   Cada variável aqui é controlada por um
+   campo do painel lateral (⚙ Personalizar).
+   Os valores abaixo são os padrões — o
+   script.js sobrescreve via JS quando o
+   usuário mexe num controle, e restaura
+   removendo o override (voltando pra cá).
+========================================= */
+
+:root {
+
+    /* formato/proporção do post */
+    --post-width: 1080px;
+    --post-height: 1920px;
+
+    /* categoria (badge "TECNOLOGIA SEM COMPLICAÇÃO") */
+    --badge-font-size: 15px;
+    --badge-color: #B69DFF;
+
+    /* título principal (H1) */
+    --title-font-size: 68px;
+    --title-color: #F8FAFC;
+
+    /* introdução */
+    --intro-font-size: 22px;
+    --intro-color: #94A3B8;
+
+    /* card — número (01, 02...) */
+    --card-number-font-size: 20px;
+    --card-number-color: #986DFF;
+
+    /* card — título */
+    --card-title-font-size: 36px;
+    --card-title-color: #F8FAFC;
+
+    /* card — texto */
+    --card-text-font-size: 30px;
+    --card-text-color: #94A3B8;
+
+    /* insight — rótulo ("⚡ INSIGHT") */
+    --insight-label-font-size: 13px;
+    --insight-label-color: #22D3EE;
+
+    /* insight — texto */
+    --insight-text-font-size: 21px;
+    --insight-text-color: #E2E8F0;
+
+    /* rodapé (@usuário) */
+    --footer-font-size: 22px;
+    --footer-color: #94A3B8;
+
+    /* logo (hero, lado direito) — padrão discreto */
+    --logo-width: 120px;
+    --logo-offset-x: 0px;
+    --logo-offset-y: 0px;
+
+    /* =========================================
+       LAYOUT — valores do formato Story (padrão).
+       Cada formato (ver FORMAT_PRESETS no
+       script.js) sobrescreve tudo isso pra caber
+       direito no espaço disponível. Os valores
+       aqui são exatamente os que o Story já usava
+       antes de formatos existirem — o Story
+       continua idêntico ao de sempre.
+    ========================================= */
+
+    --story-padding-top: 72px;
+    --story-padding-x: 78px;
+    --story-padding-bottom: 55px;
+
+    --hero-padding-top: 42px;
+    --hero-padding-bottom: 44px;
+    --badge-margin-bottom: 25px;
+    --intro-margin-top: 27px;
+
+    --cards-gap: 16px;
+    --card-min-height: 192px;
+    --card-padding: 25px 27px;
+    --card-title-line-clamp: 2;
+    --card-text-line-clamp: 4;
+
+    --insight-margin-top: 20px;
+    --insight-padding: 25px 30px;
+
+    --footer-height: 82px;
+    --footer-margin-top: 18px;
+    --footer-padding-top: 20px;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #070B14;
+
+    color: #F8FAFC;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   PAINEL DO GERADOR
+========================================= */
+
+.generator-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    min-height: 82px;
+
+    padding:
+        16px
+        28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background:
+        rgba(7, 11, 20, 0.90);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.generator-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    white-space: nowrap;
+}
+
+
+.generator-brand strong {
+
+    display: block;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+}
+
+
+.generator-brand small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #64748B;
+
+    font-size: 11px;
+
+    letter-spacing: 0.8px;
+}
+
+
+.brand-dot {
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #986DFF;
+
+    box-shadow:
+        0 0 20px
+        rgba(152, 109, 255, 0.7);
+}
+
+
+/* =========================================
+   AÇÕES
+========================================= */
+
+.generator-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+
+.secondary-button,
+.export-button,
+.post-selector {
+
+    height: 44px;
+
+    border-radius: 12px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.secondary-button {
+
+    padding: 0 17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    background: #111827;
+
+    color: #CBD5E1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.secondary-button:hover {
+
+    transform: translateY(-1px);
+
+    background: #172033;
+
+    border-color:
+        rgba(152, 109, 255, 0.35);
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.post-selector {
+
+    min-width: 260px;
+
+    padding: 0 40px 0 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    outline: none;
+
+    background-color: #111827;
+
+    color: #E2E8F0;
+
+    cursor: pointer;
+}
+
+
+.post-selector:focus {
+
+    border-color: #986DFF;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(152, 109, 255, 0.10);
+}
+
+
+/* =========================================
+   BOTÃO EXPORTAR
+========================================= */
+
+.export-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 0 22px;
+
+    border:
+        1px solid
+        rgba(152, 109, 255, 0.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            #986DFF,
+            #7654D7
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 28px
+        rgba(152, 109, 255, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.export-button:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 14px 34px
+        rgba(152, 109, 255, 0.28);
+}
+
+
+.export-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+.export-button.loading {
+
+    pointer-events: none;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================
+   WORKSPACE
+========================================= */
+
+.workspace {
+
+    width: 100%;
+
+    min-height: calc(100vh - 82px);
+
+    padding:
+        45px
+        30px
+        100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.preview-label {
+
+    margin-bottom: 18px;
+
+    color: #475569;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.story {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: var(--post-width, 1080px);
+
+    min-width: var(--post-width, 1080px);
+
+    height: var(--post-height, 1920px);
+
+    min-height: var(--post-height, 1920px);
+
+    padding:
+        var(--story-padding-top, 72px)
+        var(--story-padding-x, 78px)
+        var(--story-padding-bottom, 55px);
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 92% 4%,
+            rgba(152, 109, 255, 0.16),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 0% 80%,
+            rgba(34, 211, 238, 0.07),
+            transparent 25%
+        ),
+
+        #0B1120;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================
+   GRID DECORATIVO
+========================================= */
+
+.grid-decoration {
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 430px;
+    height: 430px;
+
+    opacity: 0.09;
+
+    background-image:
+
+        linear-gradient(
+            rgba(152, 109, 255, 0.5) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(152, 109, 255, 0.5) 1px,
+            transparent 1px
+        );
+
+    background-size: 43px 43px;
+
+    mask-image:
+        radial-gradient(
+            circle at top right,
+            black,
+            transparent 70%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle at top right,
+            black,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   STORY HEADER
+========================================= */
+
+.story-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.story-category {
+
+    padding-top: 7px;
+
+    color: #64748B;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+}
+
+
+/* =========================================
+   LOGO PLACEHOLDER
+========================================= */
+
+.logo-placeholder {
+
+    width: 175px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px dashed
+        rgba(248, 250, 252, 0.18);
+
+    border-radius: 13px;
+
+    color:
+        rgba(248, 250, 252, 0.28);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: var(--hero-padding-top, 42px);
+
+    padding-bottom: var(--hero-padding-bottom, 44px);
+}
+
+
+.category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        10px
+        17px;
+
+    margin-bottom: var(--badge-margin-bottom, 25px);
+
+    border:
+        1px solid
+        rgba(152, 109, 255, 0.45);
+
+    border-radius: 100px;
+
+    color: var(--badge-color, #B69DFF);
+
+    background:
+        rgba(152, 109, 255, 0.06);
+
+    font-size: var(--badge-font-size, 15px);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.hero h1 {
+
+    max-width: 900px;
+
+    color: var(--title-color, #F8FAFC);
+
+    font-size: var(--title-font-size, 68px);
+
+    line-height: 0.99;
+
+    letter-spacing: -3.8px;
+
+    font-weight: 800;
+}
+
+
+.intro {
+
+    max-width: 730px;
+
+    margin-top: var(--intro-margin-top, 27px);
+
+    color: var(--intro-color, #94A3B8);
+
+    font-size: var(--intro-font-size, 22px);
+
+    line-height: 1.45;
+}
+
+
+/* =========================================
+   LOGO (HERO, LADO DIREITO)
+
+   Escondida até um arquivo ser enviado pelo
+   painel (classe .has-logo). Tamanho e
+   posição vêm de variáveis CSS controladas
+   pelo painel — arraste no preview move,
+   slider redimensiona.
+========================================= */
+
+.hero-logo {
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    z-index: 3;
+
+    width: var(--logo-width, 120px);
+
+    max-width: 320px;
+
+    height: auto;
+
+    transform:
+        translate(
+            var(--logo-offset-x, 0px),
+            var(--logo-offset-y, 0px)
+        );
+
+    cursor: grab;
+
+    user-select: none;
+
+    -webkit-user-drag: element;
+
+    display: none;
+}
+
+
+.hero-logo.has-logo {
+
+    display: block;
+}
+
+
+.hero-logo:active {
+
+    cursor: grabbing;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.cards {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    /*
+    grid-auto-rows: min-content (não repeat(3, 1fr))
+    porque aqui o conteúdo já é limitado pelo
+    line-clamp do título/texto — cada card só
+    precisa da altura que o texto (já cortado)
+    realmente ocupa. Esticar as linhas pra
+    preencher todo o flex:1 disponível deixava
+    metade do card vazia nos formatos Quadrado/
+    Retrato. align-content: center centraliza o
+    bloco de cards no espaço sobrando, sem
+    encostar tudo no topo nem precisar recalcular
+    paddings por formato.
+    */
+
+    grid-auto-rows:
+        min-content;
+
+    align-content: center;
+
+    gap: var(--cards-gap, 16px);
+
+    flex: 1;
+
+    /*
+    Todo item flex tem "min-height:auto" por
+    padrão — sem isso, o flex:1 nunca deixaria
+    esse bloco encolher abaixo da altura "natural"
+    do conteúdo, o que quebraria o align-content
+    acima (não sobraria espaço pra centralizar).
+    */
+
+    min-height: 0;
+}
+
+
+.card {
+
+    position: relative;
+
+    min-height: var(--card-min-height, 192px);
+
+    padding: var(--card-padding, 25px 27px);
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 21px;
+
+    background:
+        rgba(17, 24, 39, 0.82);
+
+    /*
+    Sem box-shadow: inset aqui — o html2canvas não
+    recorta sombra interna corretamente (desenha um
+    retângulo visível em vez do brilho sutil de 1px
+    no topo), aparecendo só na exportação, nunca na
+    tela. O efeito era tão discreto (2.5% de opacidade)
+    que não faz falta.
+    */
+}
+
+
+.card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 115px;
+
+    height: 115px;
+
+    right: -58px;
+
+    bottom: -58px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(152, 109, 255, 0.08);
+}
+
+
+.card:nth-child(4n + 2)::after {
+
+    background:
+        rgba(34, 211, 238, 0.07);
+}
+
+
+.number {
+
+    /*
+    em (não px fixo) porque o tamanho da fonte do
+    número muda por formato (--card-number-font-size)
+    — margem proporcional ao próprio texto continua
+    com a mesma "sensação" de espaço em qualquer
+    tamanho, em vez de sobrar espaço demais quando a
+    fonte encolhe no Quadrado/Retrato.
+    */
+
+    margin-bottom: 0.85em;
+
+    color: var(--card-number-color, #986DFF);
+
+    font-size: var(--card-number-font-size, 20px);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.card:nth-child(4n + 2) .number {
+
+    color: #22D3EE;
+}
+
+
+.card h2 {
+
+    /* em pelo mesmo motivo do .number acima */
+
+    margin-bottom: 0.28em;
+
+    color: var(--card-title-color, #F8FAFC);
+
+    font-size: var(--card-title-font-size, 36px);
+
+    /*
+    1.25 (não 1.05) por causa de outro bug do
+    html2canvas: com -webkit-line-clamp, uma
+    line-height muito apertada corta o acento de
+    letras maiúsculas (ex.: "LÓGICA" virava "LOGICA"
+    só na exportação, nunca na tela) porque a altura
+    de linha calculada não sobra espaço pro acento.
+    */
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    /*
+    Story tem espaço de sobra pro título em 2
+    linhas. Já no Quadrado/Retrato (card bem mais
+    baixo), --card-title-line-clamp trava em menos
+    linhas — título maior vira "..." em vez de
+    estourar a altura fixa do card.
+    */
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: var(--card-title-line-clamp, 2);
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+.card p {
+
+    max-width: 405px;
+
+    color: var(--card-text-color, #94A3B8);
+
+    font-size: var(--card-text-font-size, 30px);
+
+    line-height: 1.4;
+
+    /*
+    Mesma lógica do título: --card-text-line-clamp
+    corta o texto por formato em vez de deixar o
+    parágrafo crescer e estourar o card.
+    */
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: var(--card-text-line-clamp, 4);
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   INSIGHT
+========================================= */
+
+.insight {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: var(--insight-margin-top, 20px);
+
+    padding: var(--insight-padding, 25px 30px);
+
+    border:
+        1px solid
+        rgba(34, 211, 238, 0.20);
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34, 211, 238, 0.06),
+            rgba(152, 109, 255, 0.08)
+        );
+}
+
+
+.insight-label {
+
+    margin-bottom: 9px;
+
+    color: var(--insight-label-color, #22D3EE);
+
+    font-size: var(--insight-label-font-size, 13px);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.insight p {
+
+    max-width: 850px;
+
+    color: var(--insight-text-color, #E2E8F0);
+
+    font-size: var(--insight-text-font-size, 21px);
+
+    line-height: 1.3;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.story-footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: var(--footer-height, 82px);
+
+    margin-top: var(--footer-margin-top, 18px);
+
+    padding-top: var(--footer-padding-top, 20px);
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    /*
+    Piso mínimo de espaço entre a frase
+    decorativa e o @usuário — sem isso, se o
+    autor for um texto longo (ex.: "@kawan.dev
+    · www.site.com.br"), os dois quase se
+    tocam no meio do rodapé.
+    */
+
+    gap: 24px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.story-footer::before {
+
+    content: "TECHNOLOGY • DEVELOPMENT • DATA";
+
+    color: var(--footer-color, #94A3B8);
+
+    /*
+    Menor que o @usuário de propósito — essa
+    frase é só decorativa, o contato é a
+    informação que importa. Proporcional ao
+    --footer-font-size (que você já ajustou),
+    então continua escalando junto se mudar.
+    */
+
+    font-size:
+        calc(var(--footer-font-size, 22px) * 0.68);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+.story-footer span {
+
+    color: var(--footer-color, #94A3B8);
+
+    font-size: var(--footer-font-size, 22px);
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   PAINEL DE PERSONALIZAÇÃO
+
+   Botão "⚙ Personalizar" no header abre este
+   painel lateral. Os controles são gerados
+   pelo script.js a partir de SETTINGS_FIELDS,
+   agrupados por tópico (categoria, título,
+   cards, insight, rodapé...).
+========================================= */
+
+.settings-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+
+    z-index: 1998;
+}
+
+
+.settings-overlay.open {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+.settings-panel {
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    height: 100vh;
+
+    width: 400px;
+
+    max-width: 90vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #0B1120;
+
+    border-left:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        -30px 0 80px
+        rgba(0, 0, 0, 0.5);
+
+    transform: translateX(100%);
+
+    transition: transform 0.25s ease;
+
+    z-index: 1999;
+}
+
+
+.settings-panel.open {
+
+    transform: translateX(0);
+}
+
+
+.settings-panel-header {
+
+    flex-shrink: 0;
+
+    padding: 22px 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.settings-panel-header strong {
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.2px;
+}
+
+
+.settings-panel-header small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #64748B;
+
+    font-size: 11.5px;
+}
+
+
+.settings-close-button {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: #CBD5E1;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+
+.settings-close-button:hover {
+
+    background: #172033;
+}
+
+
+.settings-panel-body {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 22px 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 26px;
+}
+
+
+.settings-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.settings-group h3 {
+
+    color: #986DFF;
+
+    font-size: 11.5px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.settings-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.settings-field-label-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 12.5px;
+
+    color: #CBD5E1;
+}
+
+
+.settings-field-value {
+
+    color: #64748B;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+.settings-field input[type="range"] {
+
+    width: 100%;
+
+    accent-color: #986DFF;
+}
+
+
+.settings-field input[type="color"] {
+
+    width: 100%;
+
+    height: 34px;
+
+    padding: 3px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    cursor: pointer;
+}
+
+
+.settings-field select {
+
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background-color: #111827;
+
+    color: #E2E8F0;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.settings-field input[type="file"] {
+
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: #94A3B8;
+
+    font-family: inherit;
+
+    font-size: 11.5px;
+
+    cursor: pointer;
+}
+
+
+.settings-field-hint {
+
+    color: #64748B;
+
+    font-size: 11.5px;
+
+    line-height: 1.4;
+}
+
+
+.settings-inline-actions {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.settings-mini-button {
+
+    flex: 1;
+
+    height: 36px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    background: #111827;
+
+    color: #CBD5E1;
+
+    font-family: inherit;
+
+    font-size: 11.5px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.settings-mini-button:hover {
+
+    background: #172033;
+
+    border-color:
+        rgba(152, 109, 255, 0.35);
+}
+
+
+.settings-panel-footer {
+
+    flex-shrink: 0;
+
+    padding: 18px 24px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.settings-reset-button {
+
+    width: 100%;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    background: #111827;
+
+    color: #CBD5E1;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.settings-reset-button:hover {
+
+    background: #172033;
+
+    border-color:
+        rgba(239, 68, 68, 0.4);
+
+    color: #FCA5A5;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE DO GERADOR
+========================================= */
+
+@media (max-width: 1200px) {
+
+    .generator-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .generator-actions {
+
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .generator-header {
+
+        padding: 14px;
+    }
+
+    .generator-actions {
+
+        gap: 7px;
+    }
+
+    .secondary-button,
+    .export-button,
+    .post-selector {
+
+        height: 40px;
+
+        font-size: 11px;
+    }
+
+    .post-selector {
+
+        min-width: 190px;
+    }
+
+    .workspace {
+
+        padding:
+            25px
+            10px
+            70px;
+    }
+
+    .settings-panel {
+
+        width: 100%;
+
+        max-width: 100vw;
+    }
+
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #070B14;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 20px;
+
+    background: #263148;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #3B4A69;
+}

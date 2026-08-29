@@ -1,0 +1,187 @@
+PROMPT — GERADOR DE CONTEÚDO + IMAGENS PARA posts-img.js
+(cole isso numa IA — a PARTE 1 numa IA de texto tipo ChatGPT/Claude,
+e a PARTE 2 numa IA de imagem tipo Midjourney/DALL-E/Ideogram)
+=============================================================
+
+
+PARTE 1 — CONTEÚDO (cole numa IA de texto)
+=============================================================
+
+Você vai gerar o conteúdo de UM post para um gerador de Stories/posts do
+Instagram sobre tecnologia e desenvolvimento de software (marca: kawan.dev).
+Este post é da variante "com imagem": cada card tem uma FOTO GRANDE e só
+uma legenda curta embaixo — não é pra ter parágrafo longo, o texto é
+secundário, a imagem é o protagonista.
+
+Sua resposta deve ser APENAS um objeto JavaScript, pronto pra colar dentro
+de um array. Não escreva nada antes ou depois. Não use bloco de código
+markdown (```). Não explique nada — só o objeto.
+
+FORMATO EXATO (siga essa estrutura, com essas chaves, nessa ordem):
+
+{
+    id: [NÚMERO],
+
+    categoria: "[BADGE CURTO EM CAIXA ALTA]",
+
+    titulo:
+        "[TÍTULO PRINCIPAL EM CAIXA ALTA]",
+
+    introducao:
+        "[UMA FRASE DE APOIO]",
+
+
+    dicas: [
+
+        {
+            numero: "01",
+            titulo: "[TÍTULO DO CARD 1]",
+            texto: "[LEGENDA CURTA DO CARD 1]"
+        },
+
+        {
+            numero: "02",
+            titulo: "[TÍTULO DO CARD 2]",
+            texto: "[LEGENDA CURTA DO CARD 2]"
+        },
+
+        {
+            numero: "03",
+            titulo: "[TÍTULO DO CARD 3]",
+            texto: "[LEGENDA CURTA DO CARD 3]"
+        },
+
+        {
+            numero: "04",
+            titulo: "[TÍTULO DO CARD 4]",
+            texto: "[LEGENDA CURTA DO CARD 4]"
+        }
+
+    ],
+
+
+    insight:
+        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]",
+
+
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+
+}
+
+
+REGRAS DE CADA CAMPO:
+
+- id: um número sequencial. Se eu não disser qual, use 0 e eu troco.
+
+- categoria: 15 a 35 caracteres, tudo em caixa alta. Texto do "selo"
+  no topo do post. Ex.: "TECNOLOGIA SEM COMPLICAÇÃO", "MEU TRABALHO".
+
+- titulo: 35 a 55 caracteres, tudo em caixa alta. Título grande do post
+  (H1), uma frase de efeito, sem ponto final.
+
+- introducao: 40 a 90 caracteres. Frase curta complementando o título.
+
+- dicas: EXATAMENTE 4 itens (não 6 — essa variante é mais enxuta),
+  numerados "01" a "04" em sequência.
+    - titulo de cada dica: 1 a 3 palavras, CAIXA ALTA, no máximo ~18
+      caracteres. Ex.: "LÓGICA", "CRIO APIS", "SEGURANÇA".
+    - texto de cada dica: 25 a 55 caracteres — BEM curto, é só uma
+      legenda embaixo de uma foto grande, não um parágrafo. Uma frase
+      enxuta, pode ou não terminar com ponto. NÃO passe de 60
+      caracteres.
+
+- insight: 60 a 110 caracteres. Frase forte de conclusão.
+
+- autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
+
+TOM DE VOZ: direto, prático, sem enrolação, como um dev experiente
+explicando pra outro dev. Português do Brasil.
+
+TEMA DESTE POST: [DESCREVA AQUI O ASSUNTO — ex.: "ferramentas que uso
+no dia a dia", "bastidores de um projeto real", "erros que já cometi"]
+
+
+EXEMPLO REAL (tom e tamanho certos):
+
+{
+    id: 1,
+    categoria: "TECNOLOGIA SEM COMPLICAÇÃO",
+    titulo:
+        "4 COISAS QUE TODO DESENVOLVEDOR DEVERIA SABER",
+    introducao:
+        "Conhecimentos simples que fazem diferença no dia a dia de um dev.",
+    dicas: [
+        { numero: "01", titulo: "LÓGICA", texto: "Antes do código vem o raciocínio." },
+        { numero: "02", titulo: "GIT", texto: "Seu código precisa de histórico." },
+        { numero: "03", titulo: "BANCO DE DADOS", texto: "Guardar dado não basta — é preciso organizar." },
+        { numero: "04", titulo: "SEGURANÇA", texto: "Funcionar não significa estar seguro." }
+    ],
+    insight:
+        "Ser desenvolvedor não é apenas escrever código. É saber construir soluções.",
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+}
+
+
+ONDE COLAR O RESULTADO:
+Abra o arquivo posts-img.js, e cole o objeto gerado dentro do array
+"posts", como mais um item (lembre da vírgula "," antes do próximo
+item, se não for o último).
+
+
+
+PARTE 2 — AS 4 IMAGENS (cole numa IA de imagem)
+=============================================================
+
+Preciso de 4 imagens/fotos para um post do Instagram, uma pra cada
+tópico abaixo. As imagens vão dentro de cards com cantos arredondados
+e são cortadas automaticamente pra preencher o quadro (crop central),
+então priorize o assunto principal BEM CENTRALIZADO na imagem.
+
+ESPECIFICAÇÃO TÉCNICA — LEIA ISSO ANTES DE GERAR (obrigatório):
+- FORMATO QUADRADO, proporção EXATA 1:1 (largura = altura). Isso é o
+  mais importante — imagem retangular/panorâmica fica cortada errado
+  no post.
+- Resolução: 1080×1080 pixels. Se a ferramenta não deixar digitar
+  esse valor exato, use o preset quadrado dela mais próximo (ex.:
+  1024×1024, que é o padrão do ChatGPT/DALL-E) — o importante é ser
+  QUADRADO, o pixel exato não precisa bater.
+- Se você estiver no Midjourney, adicione "--ar 1:1" no fim do
+  prompt. Se a ferramenta não tiver opção de proporção e devolver
+  uma imagem não-quadrada, corte manualmente pro quadrado (centralizado)
+  antes de salvar em img/ — não suba imagem retangular direto.
+- Resolução mínima aceitável: 800×800. Abaixo disso a imagem sai
+  borrada quando exportada em alta qualidade (o gerador usa 3x de
+  nitidez na exportação).
+- Formato de arquivo: PNG ou JPEG.
+- As 4 imagens devem ter o MESMO estilo visual entre si (mesma
+  iluminação, paleta de cor, composição) pra não parecerem soltas
+  quando aparecerem juntas, lado a lado, no mesmo post
+
+ESTILO VISUAL (pra combinar com o post, que é escuro/tech):
+- Paleta escura ou com bom contraste — fundo azul-marinho escuro
+  (#0B1120) ou tons neutros escuros
+- Toques de roxo (#986DFF) e/ou ciano (#22D3EE) como cor de destaque,
+  se fizer sentido pro tema
+- Estética tecnológica, minimalista, profissional — nada de imagem
+  poluída ou com muito texto dentro dela (o texto já fica por conta do
+  post, a imagem é só o visual)
+
+OS 4 TEMAS (uma imagem pra cada):
+1. [TEMA DO CARD 1 — mesmo título da dica 1 da Parte 1]
+2. [TEMA DO CARD 2 — mesmo título da dica 2 da Parte 1]
+3. [TEMA DO CARD 3 — mesmo título da dica 3 da Parte 1]
+4. [TEMA DO CARD 4 — mesmo título da dica 4 da Parte 1]
+
+Gere uma imagem por vez, cada uma representando visualmente o tema
+correspondente (pode ser simbólico/conceitual, não precisa ser literal).
+
+
+OBSERVAÇÃO SOBRE OS OUTROS FORMATOS DO POST:
+O gerador também permite exportar em Feed Quadrado (1080×1080) e Feed
+Retrato (1080×1350) além do Story (1080×1920). Nesses dois formatos, a
+área da imagem de cada card fica bem mais baixa e larga (proporção
+~2.8:1, tipo uma faixa) — uma imagem quadrada 1:1 ainda funciona (ela
+é cortada em cima/embaixo automaticamente), mas se for usar SÓ esses
+formatos, prefira gerar as imagens já mais largas que altas.

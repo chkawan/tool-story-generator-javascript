@@ -1,0 +1,154 @@
+PROMPT — GERADOR DE CONTEÚDO PARA posts.js
+(cole isso numa IA de texto — ChatGPT, Claude, Gemini etc. — e cole a
+resposta dela direto dentro do array "posts" do arquivo posts.js)
+=============================================================
+
+Você vai gerar o conteúdo de UM post para um gerador de Stories/posts do
+Instagram sobre tecnologia e desenvolvimento de software (marca: kawan.dev).
+
+Sua resposta deve ser APENAS um objeto JavaScript, pronto pra colar dentro
+de um array. Não escreva nada antes ou depois. Não use bloco de código
+markdown (```). Não explique nada — só o objeto.
+
+FORMATO EXATO (siga essa estrutura, com essas chaves, nessa ordem):
+
+{
+    id: [NÚMERO],
+
+    categoria: "[BADGE CURTO EM CAIXA ALTA]",
+
+    titulo:
+        "[TÍTULO PRINCIPAL EM CAIXA ALTA]",
+
+    introducao:
+        "[UMA FRASE DE APOIO]",
+
+
+    dicas: [
+
+        {
+            numero: "01",
+            titulo: "[TÍTULO DO CARD 1]",
+            texto:
+                "[TEXTO DO CARD 1]"
+        },
+
+        {
+            numero: "02",
+            titulo: "[TÍTULO DO CARD 2]",
+            texto:
+                "[TEXTO DO CARD 2]"
+        },
+
+        {
+            numero: "03",
+            titulo: "[TÍTULO DO CARD 3]",
+            texto:
+                "[TEXTO DO CARD 3]"
+        },
+
+        {
+            numero: "04",
+            titulo: "[TÍTULO DO CARD 4]",
+            texto:
+                "[TEXTO DO CARD 4]"
+        },
+
+        {
+            numero: "05",
+            titulo: "[TÍTULO DO CARD 5]",
+            texto:
+                "[TEXTO DO CARD 5]"
+        },
+
+        {
+            numero: "06",
+            titulo: "[TÍTULO DO CARD 6]",
+            texto:
+                "[TEXTO DO CARD 6]"
+        }
+
+    ],
+
+
+    insight:
+        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]",
+
+
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+
+}
+
+
+REGRAS DE CADA CAMPO (importante — o layout é de tamanho fixo, texto
+grande demais corta na exportação da imagem):
+
+- id: um número sequencial. Se eu não disser qual, use 0 e eu troco.
+
+- categoria: 15 a 35 caracteres, tudo em caixa alta. É o texto do
+  "selo"/badge no topo do post. Ex.: "TECNOLOGIA SEM COMPLICAÇÃO",
+  "DICA DE PYTHON", "CARREIRA EM TECNOLOGIA".
+
+- titulo: 35 a 55 caracteres, tudo em caixa alta. É o título grande do
+  post (H1). Uma frase de efeito, direta, sem ponto final.
+
+- introducao: 40 a 90 caracteres. Uma frase curta complementando o
+  título, tom direto, sem enrolação.
+
+- dicas: EXATAMENTE 6 itens, numerados de "01" a "06" em sequência.
+    - titulo de cada dica: 1 a 3 palavras, CAIXA ALTA, no máximo ~18
+      caracteres (idealmente cabe numa linha só). Ex.: "LÓGICA", "GIT",
+      "BANCO DE DADOS", "SEGURANÇA".
+    - texto de cada dica: 60 a 95 caracteres. Uma frase só, direta,
+      terminando com ponto. NÃO passe de ~100 caracteres — textos
+      mais longos que isso cortam no post (já aconteceu antes).
+
+- insight: 60 a 110 caracteres. Uma frase forte de conclusão, o tipo de
+  frase que resume o assunto todo — o post sempre fecha com ela.
+
+- autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
+
+TOM DE VOZ: direto, prático, sem enrolação, como um dev experiente
+explicando pra outro dev. Português do Brasil. Evite jargão
+desnecessário e frases genéricas de LinkedIn.
+
+TEMA DESTE POST: [DESCREVA AQUI O ASSUNTO QUE VOCÊ QUER — ex.: "erros
+comuns de quem está começando em SQL", "o que é CI/CD", "hábitos de um
+dev sênior" etc.]
+
+
+EXEMPLO REAL (pra você entender o tom e o tamanho certo dos textos):
+
+{
+    id: 1,
+    categoria: "TECNOLOGIA SEM COMPLICAÇÃO",
+    titulo:
+        "6 COISAS QUE TODO DESENVOLVEDOR DEVERIA SABER",
+    introducao:
+        "Conhecimentos simples que fazem diferença no dia a dia de um dev.",
+    dicas: [
+        { numero: "01", titulo: "LÓGICA",
+          texto: "Antes do código vem o raciocínio. Aprenda a dividir problemas em pequenas soluções." },
+        { numero: "02", titulo: "GIT",
+          texto: "Seu código precisa de histórico. Git permite controlar mudanças e voltar atrás." },
+        { numero: "03", titulo: "BANCO DE DADOS",
+          texto: "Não basta guardar informação. É preciso saber organizar, consultar e proteger os dados." },
+        { numero: "04", titulo: "APIs",
+          texto: "Aplicações precisam conversar. APIs conectam sistemas, serviços e diferentes tecnologias." },
+        { numero: "05", titulo: "SEGURANÇA",
+          texto: "Funcionar não significa estar seguro. Dados, senhas e acessos precisam ser protegidos." },
+        { numero: "06", titulo: "TESTES",
+          texto: "Se você não testa, está confiando que nada vai quebrar. Sistemas reais sempre mudam." }
+    ],
+    insight:
+        "Ser desenvolvedor não é apenas escrever código. É saber construir soluções.",
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+}
+
+
+ONDE COLAR O RESULTADO:
+Abra o arquivo posts.js, e cole o objeto gerado dentro do array
+"posts", como mais um item (lembre de colocar uma vírgula "," antes do
+próximo item, se não for o último do array).
