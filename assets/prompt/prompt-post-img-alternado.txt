@@ -1,0 +1,175 @@
+PROMPT — GERADOR DE CONTEÚDO PARA posts-img-sem-cards.js (variante alternada: atalhos/dicas rápidas)
+(cole isso numa IA de texto — ChatGPT, Claude, Gemini etc. — e cole a
+resposta dela direto dentro do array "posts" do arquivo
+posts-img-sem-cards.js)
+=============================================================
+
+Você vai gerar o conteúdo de UM post para um gerador de Stories/posts do
+Instagram sobre tecnologia (marca: kawan.dev). Este post é da variante
+"alternada": 3 linhas, cada uma com uma foto de um lado e, do outro, um
+texto que começa direto no canto superior esquerdo (sem fundo, sem
+borda) — não é uma legenda curta, é o protagonista da linha, então pode
+(e deve) ter várias frases.
+
+O FORMATO DO CONTEÚDO É "ATALHOS/DICAS RÁPIDAS PARA LEIGOS": cada uma
+das 3 dicas do post reúne de 1 a 3 atalhos, comandos ou passos de uma
+ferramenta, cada um com uma explicação BEM simples — escrita pra quem
+NUNCA usou aquilo, sem pressupor conhecimento prévio, sem jargão sem
+explicar. Não é só sobre Excel — pode ser Power BI, sistemas, automação,
+ou qualquer outra ferramenta/fluxo de trabalho que eu use no dia a dia.
+
+Sua resposta deve ser APENAS um objeto JavaScript, pronto pra colar
+dentro de um array. Não escreva nada antes ou depois. Não use bloco de
+código markdown (```). Não explique nada — só o objeto.
+
+
+FORMATO EXATO (siga essa estrutura, com essas chaves, nessa ordem):
+
+{
+    id: [NÚMERO],
+
+    categoria: "[BADGE CURTO EM CAIXA ALTA]",
+
+    titulo:
+        "[TÍTULO PRINCIPAL EM CAIXA ALTA]",
+
+    introducao:
+        "[UMA FRASE DE APOIO]",
+
+    dicas: [
+
+        {
+            numero: "01",
+            titulo: "[TÍTULO CURTO DA DICA 1]",
+            texto: "[UM OU MAIS ATALHOS, VER REGRAS ABAIXO]"
+        },
+
+        {
+            numero: "02",
+            titulo: "[TÍTULO CURTO DA DICA 2]",
+            texto: "[UM OU MAIS ATALHOS, VER REGRAS ABAIXO]"
+        },
+
+        {
+            numero: "03",
+            titulo: "[TÍTULO CURTO DA DICA 3]",
+            texto: "[UM OU MAIS ATALHOS, VER REGRAS ABAIXO]"
+        }
+
+    ],
+
+    insight:
+        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]",
+
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+
+}
+
+
+REGRAS DE CADA CAMPO:
+
+- id: um número sequencial. Se eu não disser qual, use 0 e eu troco.
+
+- categoria: 15 a 35 caracteres, tudo em caixa alta. Texto do "selo" no
+  topo do post, no formato "ATALHOS DE [FERRAMENTA]". Ex.: "ATALHOS DO
+  EXCEL", "ATALHOS DO POWER BI", "ATALHOS DO WINDOWS".
+
+- titulo: 20 a 48 caracteres, tudo em caixa alta. Título grande do post
+  (H1) — o que esses 3 atalhos resolvem na prática, sem ponto final. Ex.:
+  "SELEÇÃO RÁPIDA DE DADOS".
+
+- introducao: 40 a 110 caracteres. Frase curta complementando o título,
+  tom direto, sem enrolação.
+
+- dicas: EXATAMENTE 3 itens, numerados "01" a "03" em sequência. Cada
+  dica agrupa um sub-tema (ex.: "seleção vertical", "seleção
+  horizontal", "seleção do bloco" — três formas de fazer a MESMA coisa
+  geral, cada forma numa dica).
+
+    - titulo de cada dica: 1 a 3 palavras, CAIXA ALTA, no máximo ~22
+      caracteres. Ex.: "SELEÇÃO VERTICAL".
+
+    - texto de cada dica: campo HTML (não é escapado, então as tags
+      abaixo funcionam de verdade). Estrutura OBRIGATÓRIA — 1 a 3
+      atalhos, cada um nesse formato exato:
+
+          <span class="destaque">[ATALHO OU COMANDO]</span> - [explicação]
+
+      e, se houver mais de um atalho na mesma dica, separe cada linha
+      com <br> (sem espaço antes/depois da tag). Exemplo com 2 atalhos:
+
+          "<span class=\"destaque\">Ctrl + C</span> - Copia o que está selecionado.<br><span class=\"destaque\">Ctrl + V</span> - Cola o que foi copiado."
+
+      Regras do span (<span class="destaque">...</span>):
+        - Escreva o atalho em caixa NORMAL (ex.: "Ctrl + Shift + ↓"),
+          NÃO em maiúsculas — o CSS já converte pra caixa alta e deixa
+          em branco/negrito sozinho. Digitar em maiúsculas manualmente
+          só dificulta a leitura de quem for editar depois.
+        - Coloque ali SÓ o atalho/comando/termo-chave (a combinação de
+          teclas, o nome do botão, o nome do menu) — nunca a frase
+          inteira.
+
+      Regras da explicação (depois do " - "):
+        - 30 a 90 caracteres por atalho. Direta, sem jargão sem
+          explicar, como se estivesse ensinando alguém que nunca abriu
+          aquela ferramenta.
+        - Termine com ponto final.
+
+      Regras gerais da dica:
+        - Não passe de 3 atalhos por dica (2 já é ótimo). Mais que
+          isso o texto fica alto demais pros formatos Quadrado/Retrato
+          (linha bem mais baixa que no Story) e pode cortar.
+
+- insight: 60 a 160 caracteres. Texto puro, SEM HTML/span (esse campo
+  não interpreta tags) — uma frase forte de conclusão, geralmente
+  resumindo quando usar cada atalho.
+
+- autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
+
+TOM DE VOZ: direto, prático, teacher-like — nunca assuma que quem está
+lendo é técnico. Se usar uma sigla ou termo específico da ferramenta,
+explique o que ele faz na mesma frase. Português do Brasil.
+
+TEMA DESTE POST: [DESCREVA AQUI A FERRAMENTA E O ASSUNTO — ex.: "atalhos
+de formatação condicional no Excel", "atalhos de navegação no Power BI",
+"comandos rápidos de terminal que uso no dia a dia"]
+
+
+EXEMPLO REAL (conteúdo já em produção — use pra calibrar tom e tamanho):
+
+{
+    id: 1,
+    categoria: "ATALHOS DO EXCEL",
+    titulo:
+        "SELEÇÃO RÁPIDA DE DADOS",
+    introducao:
+        "Selecione dados para cima, para baixo, para os lados ou o bloco inteiro usando poucos atalhos.",
+    dicas: [
+        {
+            numero: "01",
+            titulo: "SELEÇÃO VERTICAL",
+            texto: "<span class=\"destaque\">Ctrl + Shift + ↓</span> - Seleciona os dados até o final abaixo.<br><span class=\"destaque\">Ctrl + Shift + ↑</span> - Faz o mesmo para cima.<br><span class=\"destaque\">Ctrl + Espaço</span> - Seleciona a coluna inteira."
+        },
+        {
+            numero: "02",
+            titulo: "SELEÇÃO HORIZONTAL",
+            texto: "<span class=\"destaque\">Ctrl + Shift + →</span> - Seleciona os dados até o final à direita.<br><span class=\"destaque\">Ctrl + Shift + ←</span> - Faz o mesmo para a esquerda.<br><span class=\"destaque\">Shift + Espaço</span> - Seleciona a linha inteira."
+        },
+        {
+            numero: "03",
+            titulo: "SELEÇÃO DO BLOCO",
+            texto: "<span class=\"destaque\">Ctrl + Shift + Espaço</span> - Seleciona todo o bloco de dados atual.<br><span class=\"destaque\">Ctrl + Shift + seta</span> - Seleciona apenas na direção escolhida."
+        }
+    ],
+    insight:
+        "Use Ctrl + Shift + seta para selecionar dados em uma direção, Espaço para selecionar uma linha ou coluna inteira e Ctrl + Shift + Espaço para selecionar o bloco completo.",
+    autor:
+        "@kawan.dev · www.kawandev.com.br"
+}
+
+
+ONDE COLAR O RESULTADO:
+Abra o arquivo posts-img-sem-cards.js, e cole o objeto gerado dentro do
+array "posts", como mais um item (lembre da vírgula "," antes do
+próximo item, se não for o último).

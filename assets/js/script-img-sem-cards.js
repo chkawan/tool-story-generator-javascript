@@ -241,9 +241,17 @@ function renderPost(index) {
                     "card-row";
 
 
+                /*
+                dica.texto NÃO passa por escapeHTML — é conteúdo
+                escrito à mão neste arquivo (posts-img-sem-cards.js),
+                não input de usuário, e pode conter
+                <span class="destaque">...</span> pra marcar atalhos
+                ou palavras-chave (ver style-img-sem-cards.css).
+                */
+
                 const captionHTML =
                     dica.texto ?
-                        `<p class="caption">${escapeHTML(dica.texto)}</p>` :
+                        `<p class="caption">${dica.texto}</p>` :
                         "";
 
 

@@ -940,6 +940,19 @@ as linhas 1 e 3.
     justify-content: flex-start;
 
     padding: 0 var(--card-text-padding-x, 34px) 0 0;
+
+    /*
+    A legenda (.caption) não trava mais em 2
+    linhas fixas — cresce até preencher a
+    altura da linha (que já é bem maior agora,
+    do tamanho da foto ao lado). Esse overflow
+    é quem corta com segurança se o texto for
+    longo demais pro formato atual (Quadrado/
+    Retrato têm linhas bem mais baixas que o
+    Story), sem vazar pra cima da próxima linha.
+    */
+
+    overflow: hidden;
 }
 
 
@@ -1005,14 +1018,25 @@ as linhas 1 e 3.
     font-size: var(--card-caption-font-size, 15px);
 
     line-height: 1.35;
+}
 
-    display: -webkit-box;
 
-    -webkit-line-clamp: 2;
+/*
+Palavra/atalho em destaque dentro da legenda
+(.caption) — mesma cor e peso do título do
+card, sempre em caixa alta (não precisa
+digitar em maiúsculas no conteúdo, o CSS já
+converte). Ex.: <span class="destaque">Ctrl +
+Shift + ↓</span> dentro do "texto" de uma dica.
+*/
 
-    -webkit-box-orient: vertical;
+.card-text .caption .destaque {
 
-    overflow: hidden;
+    color: var(--card-title-color, #F8FAFC);
+
+    font-weight: 800;
+
+    text-transform: uppercase;
 }
 
 
