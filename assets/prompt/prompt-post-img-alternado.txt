@@ -121,9 +121,13 @@ REGRAS DE CADA CAMPO:
           isso o texto fica alto demais pros formatos Quadrado/Retrato
           (linha bem mais baixa que no Story) e pode cortar.
 
-- insight: 60 a 160 caracteres. Texto puro, SEM HTML/span (esse campo
-  não interpreta tags) — uma frase forte de conclusão, geralmente
-  resumindo quando usar cada atalho.
+- insight: 60 a 160 caracteres. Também é campo HTML (mesma regra da
+  dica) — pode e deve usar <span class="destaque">...</span> nos
+  atalhos que estiver citando, mas SEM <br> aqui (é uma frase corrida
+  só, não uma lista). Uma frase forte de conclusão, geralmente
+  resumindo quando usar cada atalho. Ex.:
+
+      "Use <span class=\"destaque\">Ctrl + C</span> para copiar e <span class=\"destaque\">Ctrl + V</span> para colar em qualquer lugar."
 
 - autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
 
@@ -163,7 +167,7 @@ EXEMPLO REAL (conteúdo já em produção — use pra calibrar tom e tamanho):
         }
     ],
     insight:
-        "Use Ctrl + Shift + seta para selecionar dados em uma direção, Espaço para selecionar uma linha ou coluna inteira e Ctrl + Shift + Espaço para selecionar o bloco completo.",
+        "Use <span class=\"destaque\">Ctrl + Shift + seta</span> para selecionar dados em uma direção, <span class=\"destaque\">Espaço</span> para selecionar uma linha ou coluna inteira e <span class=\"destaque\">Ctrl + Shift + Espaço</span> para selecionar o bloco completo.",
     autor:
         "@kawan.dev · www.kawandev.com.br"
 }

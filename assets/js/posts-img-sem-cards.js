@@ -6,12 +6,13 @@
    pra bater com as 3 linhas foto+texto do
    layout alternado (ver script-img-sem-cards.js).
 
-   O campo "texto" de cada dica aceita HTML —
-   use <span class="destaque">...</span> pra
-   marcar um atalho ou palavra-chave (fica
-   branco, negrito e em caixa alta, igual ao
-   título) e <br> pra separar itens numa lista
-   de atalhos dentro da mesma dica.
+   O campo "texto" de cada dica e o "insight"
+   do post aceitam HTML — use
+   <span class="destaque">...</span> pra marcar
+   um atalho ou palavra-chave (fica branco,
+   negrito e em caixa alta, igual ao título) e
+   <br> pra separar itens numa lista de atalhos
+   dentro da mesma dica.
 ========================================= */
 
 const posts = [
@@ -52,7 +53,7 @@ const posts = [
         ],
 
         insight:
-            "Use Ctrl + Shift + seta para selecionar dados em uma direção, Espaço para selecionar uma linha ou coluna inteira e Ctrl + Shift + Espaço para selecionar o bloco completo.",
+            "Use <span class=\"destaque\">Ctrl + Shift + seta</span> para selecionar dados em uma direção, <span class=\"destaque\">Espaço</span> para selecionar uma linha ou coluna inteira e <span class=\"destaque\">Ctrl + Shift + Espaço</span> para selecionar o bloco completo.",
     
         autor:
         "@kawan.dev · www.kawandev.com.br"

@@ -213,7 +213,15 @@ function renderPost(index) {
         post.introducao;
 
 
-    postInsight.textContent =
+    /*
+    innerHTML (não textContent) — igual ao
+    "texto" das dicas, post.insight pode conter
+    <span class="destaque">...</span> pra marcar
+    um atalho/palavra-chave. Conteúdo escrito à
+    mão neste arquivo, não input de usuário.
+    */
+
+    postInsight.innerHTML =
         post.insight;
 
 
@@ -836,6 +844,7 @@ const FORMAT_PRESETS = {
             "--cards-gap": "18px",
             "--card-text-padding-x": "34px",
             "--card-title-line-clamp": "2",
+            "--caption-line-gap": "10px",
             "--insight-margin-top": "20px",
             "--insight-padding": "25px 30px",
             "--footer-height": "82px",
@@ -849,7 +858,7 @@ const FORMAT_PRESETS = {
             introFontSize: 22,
             cardNumberFontSize: 20,
             cardTitleFontSize: 34,
-            cardCaptionFontSize: 20,
+            cardCaptionFontSize: 23,
             insightLabelFontSize: 13,
             insightTextFontSize: 21,
             footerFontSize: 22
@@ -870,6 +879,7 @@ const FORMAT_PRESETS = {
             "--cards-gap": "10px",
             "--card-text-padding-x": "14px",
             "--card-title-line-clamp": "1",
+            "--caption-line-gap": "3px",
             "--insight-margin-top": "10px",
             "--insight-padding": "11px 15px",
             "--footer-height": "34px",
@@ -904,6 +914,7 @@ const FORMAT_PRESETS = {
             "--cards-gap": "13px",
             "--card-text-padding-x": "20px",
             "--card-title-line-clamp": "1",
+            "--caption-line-gap": "5px",
             "--insight-margin-top": "13px",
             "--insight-padding": "16px 20px",
             "--footer-height": "52px",
