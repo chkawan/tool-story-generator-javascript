@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Kawan.dev — Story Generator (Imagem, alternado)</title>
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style-img-sem-cards.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         PAINEL DO GERADOR
+    ========================================== -->
+
+    <header class="generator-header">
+
+        <div class="generator-brand">
+
+            <span class="brand-dot"></span>
+
+            <div>
+                <strong>kawan.dev</strong>
+                <small>Story Generator · Imagem (alternado)</small>
+            </div>
+
+        </div>
+
+
+        <div class="generator-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="previousPost"
+            >
+                ← Anterior
+            </button>
+
+
+            <select
+                id="postSelector"
+                class="post-selector"
+            ></select>
+
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="nextPost"
+            >
+                Próximo →
+            </button>
+
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="settingsToggle"
+            >
+                ⚙ Personalizar
+            </button>
+
+
+            <button
+                type="button"
+                class="export-button"
+                id="exportButton"
+            >
+                <span>⚡</span>
+                Exportar PNG
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         PAINEL DE PERSONALIZAÇÃO
+    ========================================== -->
+
+    <div
+        class="settings-overlay"
+        id="settingsOverlay"
+    ></div>
+
+    <aside
+        class="settings-panel"
+        id="settingsPanel"
+    >
+
+        <div class="settings-panel-header">
+
+            <div>
+                <strong>Personalizar post</strong>
+                <small>Fontes, cores, formato e imagens — sem mexer no CSS</small>
+            </div>
+
+            <button
+                type="button"
+                class="settings-close-button"
+                id="settingsClose"
+                aria-label="Fechar"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <div
+            class="settings-panel-body"
+            id="settingsBody"
+        >
+            <!-- Gerado pelo script-img-sem-cards.js a partir de FORMATS e SETTINGS_FIELDS -->
+        </div>
+
+
+        <div class="settings-panel-footer">
+
+            <button
+                type="button"
+                class="settings-reset-button"
+                id="settingsReset"
+            >
+                Restaurar padrão
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- input de arquivo escondido, reaproveitado
+         para o upload de qualquer uma das 3 fotos
+         (ver script-img-sem-cards.js → openCardImagePicker) -->
+
+    <input
+        type="file"
+        id="cardImageInput"
+        accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
+        style="display:none;"
+    >
+
+
+    <!-- =========================================
+         ÁREA PRINCIPAL
+    ========================================== -->
+
+    <main class="workspace">
+
+        <div
+            class="preview-label"
+            id="previewLabel"
+        >
+            PREVIEW · 1080 × 1920
+        </div>
+
+
+        <!-- =====================================
+             STORY
+        ====================================== -->
+
+        <section
+            class="story"
+            id="story"
+        >
+
+            <!-- decoração -->
+            <div class="grid-decoration"></div>
+
+
+            <!-- =================================
+                 LOGO — posicionada em relação ao
+                 .story (a página inteira), não à
+                 .hero, pra top/right serem a
+                 distância real das bordas do post
+            ================================== -->
+
+            <img
+                class="hero-logo"
+                id="heroLogo"
+                alt="Logo"
+            >
+
+            <button
+                type="button"
+                class="hero-logo-remove"
+                id="heroLogoRemove"
+                aria-label="Remover logo"
+            >✕</button>
+
+
+            <!-- =================================
+                 HERO
+            ================================== -->
+
+            <section class="hero">
+
+                <span
+                    class="category"
+                    id="postCategory"
+                >
+                    TECNOLOGIA SEM COMPLICAÇÃO
+                </span>
+
+
+                <h1 id="postTitle">
+                    4 COISAS QUE TODO
+                    DESENVOLVEDOR DEVERIA SABER
+                </h1>
+
+
+                <p
+                    class="intro"
+                    id="postIntro"
+                >
+                    Conhecimentos simples que fazem
+                    diferença no dia a dia de um dev.
+                </p>
+
+            </section>
+
+
+            <!-- =================================
+                 CARDS (3 linhas, foto + texto
+                 alternando de lado)
+            ================================== -->
+
+            <section
+                class="cards"
+                id="postCards"
+            >
+                <!-- Gerado pelo script-img-sem-cards.js -->
+            </section>
+
+
+            <!-- =================================
+                 INSIGHT
+            ================================== -->
+
+            <section class="insight">
+
+                <div class="insight-label">
+                    ⚡ INSIGHT
+                </div>
+
+
+                <p id="postInsight">
+                    Ser desenvolvedor não é apenas
+                    escrever código. É saber construir
+                    soluções.
+                </p>
+
+            </section>
+
+
+            <!-- =================================
+                 FOOTER
+            ================================== -->
+
+            <footer class="story-footer">
+
+                <span id="postAuthor">
+                    @kawan.dev
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+
+    <!-- html2canvas
+         usado para transformar o Story em PNG -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+    ></script>
+
+
+    <!-- Conteúdo -->
+
+    <script src="assets/js/posts-img-sem-cards.js"></script>
+
+
+    <!-- Funcionamento -->
+
+    <script src="assets/js/script-img-sem-cards.js"></script>
+
+</body>
+
+</html>
