@@ -53,12 +53,8 @@ const posts = [
 
 
     insight:
-        "Você não precisa se adaptar às ferramentas prontas. Eu construo a que se adapta a você.",
+        "Você não precisa se adaptar às ferramentas prontas. Eu construo a que se adapta a você."
 
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
-,
 },
 
 //  EXCEL
@@ -104,11 +100,7 @@ const posts = [
 
 
     insight:
-        "Planilha não é só número em célula — é ferramenta de decisão, quando bem construída.",
-
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Planilha não é só número em célula — é ferramenta de decisão, quando bem construída."
 
 },
 
@@ -155,11 +147,7 @@ const posts = [
 
 
     insight:
-        "Dashboard bom não é bonito só de olhar — é rápido de entender e fácil de decidir.",
-
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Dashboard bom não é bonito só de olhar — é rápido de entender e fácil de decidir."
 
 },
 // SISTEMAS SOB MEDIDA
@@ -205,11 +193,7 @@ const posts = [
 
 
     insight:
-        "Sistema pronto resolve problema genérico. Sistema sob medida resolve o SEU problema.",
-
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Sistema pronto resolve problema genérico. Sistema sob medida resolve o SEU problema."
 
 },
 
@@ -257,11 +241,7 @@ const posts = [
 
 
     insight:
-        "Automatizar não é sobre substituir pessoas — é sobre parar de desperdiçar o tempo delas.",
-
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Automatizar não é sobre substituir pessoas — é sobre parar de desperdiçar o tempo delas."
 
 }
 

@@ -81,11 +81,7 @@ const posts = [
 
 
         insight:
-            "Ser desenvolvedor não é apenas escrever código. É saber construir soluções.",
-
-
-        autor:
-            "@kawan.dev · www.kawandev.com.br"
+            "Ser desenvolvedor não é apenas escrever código. É saber construir soluções."
 
     },
 
@@ -147,10 +143,7 @@ const posts = [
     ],
 
     insight:
-        "Código limpo não é código bonito. É código que você consegue manter.",
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Código limpo não é código bonito. É código que você consegue manter."
 },
 
 {
@@ -211,10 +204,7 @@ const posts = [
     ],
 
     insight:
-        "Um bom programador não é quem escreve mais código. É quem resolve problemas com decisões melhores.",
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Um bom programador não é quem escreve mais código. É quem resolve problemas com decisões melhores."
 },
 
 
@@ -276,10 +266,7 @@ dicas: [
 ],
 
 insight:
-    "Meu trabalho não é apenas escrever código. É transformar problemas em sistemas.",
-
-autor:
-    "@kawan.dev · www.kawandev.com.br"
+    "Meu trabalho não é apenas escrever código. É transformar problemas em sistemas."
 
 },
 

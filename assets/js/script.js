@@ -36,8 +36,12 @@ const postCards =
 const postInsight =
     document.getElementById("postInsight");
 
-const postAuthor =
-    document.getElementById("postAuthor");
+/*
+Sem #postAuthor — "@kawan.dev • www.kawandev.
+com.br" é gerado via ::after no style.css
+(não muda por post), então não tem elemento
+HTML nem o que ler/escrever nele em JS.
+*/
 
 const story =
     document.getElementById("story");
@@ -155,10 +159,6 @@ function renderPost(index) {
 
     postInsight.textContent =
         post.insight;
-
-
-    postAuthor.textContent =
-        post.autor;
 
 
     /* -------------------------

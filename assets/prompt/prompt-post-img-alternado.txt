@@ -59,10 +59,7 @@ FORMATO EXATO (siga essa estrutura, com essas chaves, nessa ordem):
     ],
 
     insight:
-        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]",
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]"
 
 }
 
@@ -129,7 +126,8 @@ REGRAS DE CADA CAMPO:
 
       "Use <span class=\"destaque\">Ctrl + C</span> para copiar e <span class=\"destaque\">Ctrl + V</span> para colar em qualquer lugar."
 
-- autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
+NÃO INCLUA campo "autor" — o rodapé do post ("@kawan.dev • www.kawandev.com.br")
+é fixo no HTML/CSS do template, não faz parte dos dados de cada post.
 
 TOM DE VOZ: direto, prático, teacher-like — nunca assuma que quem está
 lendo é técnico. Se usar uma sigla ou termo específico da ferramenta,
@@ -167,9 +165,7 @@ EXEMPLO REAL (conteúdo já em produção — use pra calibrar tom e tamanho):
         }
     ],
     insight:
-        "Use <span class=\"destaque\">Ctrl + Shift + seta</span> para selecionar dados em uma direção, <span class=\"destaque\">Espaço</span> para selecionar uma linha ou coluna inteira e <span class=\"destaque\">Ctrl + Shift + Espaço</span> para selecionar o bloco completo.",
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Use <span class=\"destaque\">Ctrl + Shift + seta</span> para selecionar dados em uma direção, <span class=\"destaque\">Espaço</span> para selecionar uma linha ou coluna inteira e <span class=\"destaque\">Ctrl + Shift + Espaço</span> para selecionar o bloco completo."
 }
 
 

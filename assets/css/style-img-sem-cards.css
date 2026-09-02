@@ -459,8 +459,15 @@ body {
 
     background:
 
+        /*
+        Invertido pro canto esquerdo — original
+        era "circle at 92% 4%" (canto direito).
+        Aplicado nos 3 templates (aqui,
+        style.css e style-img.css).
+        */
+
         radial-gradient(
-            circle at 92% 4%,
+            circle at 8% 4%,
             rgba(152, 109, 255, 0.16),
             transparent 25%
         ),
@@ -487,8 +494,15 @@ body {
 
     position: absolute;
 
+    /*
+    Invertido pro canto esquerdo, junto com o
+    brilho do .story (acima) — originais eram
+    "right: 0" e "circle at top right" nos dois
+    masks abaixo. Aplicado nos 3 templates.
+    */
+
     top: 0;
-    right: 0;
+    left: 0;
 
     width: 430px;
     height: 430px;
@@ -512,14 +526,14 @@ body {
 
     mask-image:
         radial-gradient(
-            circle at top right,
+            circle at top left,
             black,
             transparent 70%
         );
 
     -webkit-mask-image:
         radial-gradient(
-            circle at top right,
+            circle at top left,
             black,
             transparent 70%
         );
@@ -1199,10 +1213,9 @@ Shift + ↓</span>.
 
     /*
     Piso mínimo de espaço entre a frase
-    decorativa e o @usuário — sem isso, um
-    autor longo (ex.: "@kawan.dev ·
-    www.site.com.br") quase encosta na frase
-    decorativa no meio do rodapé.
+    decorativa (::before) e o contato
+    (::after) — sem isso, os dois quase se
+    encostam no meio do rodapé.
     */
 
     gap: 24px;
@@ -1238,7 +1251,16 @@ Shift + ↓</span>.
 }
 
 
-.story-footer span {
+.story-footer::after {
+
+    /*
+    Igual à frase decorativa (::before) —
+    fixo aqui, não muda por post, então não
+    tem por que estar duplicado no HTML nem
+    lido/escrito por JS.
+    */
+
+    content: "@kawan.dev • www.kawandev.com.br";
 
     color: var(--footer-color, #94A3B8);
 
@@ -1247,6 +1269,8 @@ Shift + ↓</span>.
     font-weight: 700;
 
     letter-spacing: 1px;
+
+    white-space: nowrap;
 }
 
 

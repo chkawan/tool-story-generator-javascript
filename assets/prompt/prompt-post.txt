@@ -72,11 +72,7 @@ FORMATO EXATO (siga essa estrutura, com essas chaves, nessa ordem):
 
 
     insight:
-        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]",
-
-
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "[UMA FRASE DE FECHAMENTO, TIPO CONCLUSÃO/INSIGHT]"
 
 }
 
@@ -107,7 +103,8 @@ grande demais corta na exportação da imagem):
 - insight: 60 a 110 caracteres. Uma frase forte de conclusão, o tipo de
   frase que resume o assunto todo — o post sempre fecha com ela.
 
-- autor: sempre exatamente "@kawan.dev · www.kawandev.com.br" — não mude.
+NÃO INCLUA campo "autor" — o rodapé do post ("@kawan.dev • www.kawandev.com.br")
+é fixo no HTML/CSS do template, não faz parte dos dados de cada post.
 
 TOM DE VOZ: direto, prático, sem enrolação, como um dev experiente
 explicando pra outro dev. Português do Brasil. Evite jargão
@@ -142,9 +139,7 @@ EXEMPLO REAL (pra você entender o tom e o tamanho certo dos textos):
           texto: "Se você não testa, está confiando que nada vai quebrar. Sistemas reais sempre mudam." }
     ],
     insight:
-        "Ser desenvolvedor não é apenas escrever código. É saber construir soluções.",
-    autor:
-        "@kawan.dev · www.kawandev.com.br"
+        "Ser desenvolvedor não é apenas escrever código. É saber construir soluções."
 }
 
 
